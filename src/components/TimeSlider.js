@@ -2,12 +2,20 @@ import React from 'react';
 import Slider from '@react-native-community/slider';
 import {View, Text} from 'react-native';
 import moment from 'moment';
+import durationFormatSetup from 'moment-duration-format';
 import styles from './styles/TimeSliderStyles.js';
+
+// XXX: DO NOT LIKE THIS! REPLACE LATER
+durationFormatSetup(moment);
 
 const TimeSlider = ({currentTime, totalTime}) => {
   const sliderValue = currentTime / totalTime;
-  const currentTimeDisplay = moment.unix(currentTime).format('mm:ss');
-  const timeLeftDisplay = moment.unix(totalTime).format('mm:ss');
+  const currentTimeDisplay = moment
+    .duration(currentTime, 'seconds')
+    .format('hh:mm:ss');
+  const timeLeftDisplay = moment
+    .duration(totalTime - currentTime, 'seconds')
+    .format('hh:mm:ss');
   return (
     <View style={styles.container}>
       <Slider
