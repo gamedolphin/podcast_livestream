@@ -8,8 +8,14 @@ import styles from './styles/PlayScreenStyles.js';
 import {useNavigationParam} from 'react-navigation-hooks';
 import {PODCASTINFOKEY} from './PodcastScreen.js';
 
+const getPodcastInformation = () => {
+  const info = useNavigationParam(PODCASTINFOKEY);
+
+  return info ? info : {artistInfo: {}, podcastTitle: ''};
+};
+
 const PlayScreen = () => {
-  const podcastInformation = useNavigationParam(PODCASTINFOKEY);
+  const podcastInformation = getPodcastInformation();
 
   const {artistInfo, podcastTitle} = podcastInformation;
 

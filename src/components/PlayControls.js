@@ -1,5 +1,6 @@
 import React from 'react';
 import {Button, View} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const PlayControls = () => {
   return (
@@ -9,9 +10,9 @@ const PlayControls = () => {
         flexDirection: 'row',
         justifyContent: 'space-around',
       }}>
-      <Button title="-10s" onPress={() => {}} />
-      <Button title="Play" onPress={() => {}} />
-      <Button title="+10s" onPress={() => {}} />
+      <Icon.Button name="backward" onPress={() => {}} />
+      <Icon.Button name="play" onPress={() => {}} />
+      <Icon.Button name="forward" onPress={() => {}} />
     </View>
   );
 };
