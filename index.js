@@ -3,7 +3,7 @@
  */
 
 import {AppRegistry} from 'react-native';
-import PlayScreen from './src/screens/PlayScreen.js';
+import App from './src/screens/App.js';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => PlayScreen);
+AppRegistry.registerComponent(appName, () => App);

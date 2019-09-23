@@ -5,14 +5,20 @@ import PodcastImage from '../components/PodcastImage.js';
 import TimeSlider from '../components/TimeSlider.js';
 import PlayControls from '../components/PlayControls.js';
 import styles from './styles/PlayScreenStyles.js';
+import {useNavigationParam} from 'react-navigation-hooks';
+import {PODCASTINFOKEY} from './PodcastScreen.js';
 
 const PlayScreen = () => {
+  const podcastInformation = useNavigationParam(PODCASTINFOKEY);
+
+  const {artistInfo, podcastTitle} = podcastInformation;
+
   return (
     <View style={styles.container}>
       <PodcastImage
-        imageUrl="http://lorempixel.com/output/cats-q-c-720-720-7.jpg"
-        podcastName="Best Podcast Ever!!"
-        artistName="Hello Internet"
+        imageUrl={artistInfo.imageUrl}
+        podcastName={podcastTitle}
+        artistName={artistInfo.artistName}
       />
       <TimeSlider currentTime={2000} totalTime={6000} />
       <View style={styles.playControlContainer}>
