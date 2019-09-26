@@ -1,8 +1,16 @@
 import React from 'react';
-import AppContainer from './Navigation.js';
+import RootContainer from './RootContainer.js';
+import {Provider} from 'react-redux';
+import createStore from '../redux/index.js';
+
+const {store} = createStore();
 
 const App = () => {
-  return <AppContainer />;
+  return (
+    <Provider store={store}>
+      <RootContainer />
+    </Provider>
+  );
 };
 
 export default App;
